@@ -1,0 +1,3 @@
+*.ejs linguist-vendored
+*.ts linguist-detectable
+*.tsx linguist-detectable

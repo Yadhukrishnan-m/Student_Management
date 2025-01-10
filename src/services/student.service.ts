@@ -8,8 +8,8 @@ export class StudentService implements IstudentService{
 
     private studentRepository: IstudentRepository;
     private bcryptPass: BcryptPass;
-    constructor(){
-        this.studentRepository=new StudentRepository();
+    constructor(studentRepository: IstudentRepository){
+        this.studentRepository = studentRepository;
         this.bcryptPass = new BcryptPass();
     }
     async cerateStudent(student:Istudent):Promise<Istudent |boolean>{

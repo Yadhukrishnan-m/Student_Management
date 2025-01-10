@@ -5,8 +5,8 @@ import path from "path";
 export class StudentRoute {
   private studentController: StudentController;
   private studentRouter: Express.Router;
-  constructor() {
-    this.studentController = new StudentController();
+  constructor(studentController: StudentController) {
+    this.studentController =  studentController;
     this.studentRouter = Express.Router();
     this.setRoutes();
   }

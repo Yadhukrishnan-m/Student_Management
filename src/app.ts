@@ -6,6 +6,13 @@ import path from "path";
 import session from 'express-session'; // Import express-session
 import flash from 'connect-flash'; 
 import nocache from 'nocache'; 
+
+import { StudentController } from './controllers/student.controller';
+import { StudentService } from './services/student.service';
+import { StudentRepository } from './repositories/student.repository';
+import {  AdminController } from './controllers/admin.controller';
+import { AdminService} from './services/admin.service';
+import { AdminRepository } from './repositories/admin.repository';
 declare module "express-session" {
     interface SessionData {
       student?: string | null; // Student ID or additional session data
@@ -56,13 +63,20 @@ export class App {
 
    
  private setStudentRoute(){
-    const studentRoute=new StudentRoute()
+  const studentRepository=new StudentRepository()
+  const studentService=new StudentService(studentRepository)
+  const studentController=new StudentController(studentService)
+    const studentRoute=new StudentRoute(studentController)
   this.app.use('/',studentRoute.getStudentRoute());
  }
- private setAdminRoute(){
-    const adminRoute=new AdminRoute()
-  this.app.use('/admin',adminRoute.getAdminRoute());
- }
+ private setAdminRoute() {
+  const adminRepository = new AdminRepository();
+  const adminService = new AdminService(adminRepository);  
+  const adminController = new AdminController(adminService);  
+  const adminRoute = new AdminRoute(adminController);
+  this.app.use('/admin', adminRoute.getAdminRoute());
+}
+
       
       
      

@@ -5,8 +5,8 @@ import path from "path";
 export class AdminRoute {
   private AdminController: AdminController;
   private adminRouter: Express.Router;
-  constructor() {
-    this.AdminController = new AdminController();
+  constructor(AdminController: AdminController) {
+    this.AdminController =  AdminController;
     this.adminRouter = Express.Router();
     this.setRoutes();
   }

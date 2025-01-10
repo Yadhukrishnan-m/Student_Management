@@ -9,8 +9,8 @@ export class StudentController{
 
     private studentService:IstudentService;
 
-    constructor(){
-        this.studentService=new StudentService()
+    constructor(studentService:IstudentService){
+        this.studentService=studentService
     }
 
    async  registerStudent(req:Request,res:Response): Promise <void > {
@@ -28,10 +28,8 @@ export class StudentController{
 
             }
         } catch (error) {
-            console.log(error);
-            
+            console.log(error);   
         }
-    
     }
     async loginStudent(req:Request,res:Response): Promise <void > {
         try {

@@ -11,8 +11,8 @@ export class AdminController{
 
     private adminService:IadminService;
 
-    constructor(){
-        this.adminService=new AdminService()
+    constructor(adminService: IadminService){
+        this.adminService = adminService;
     }
 
     async adminLoagin(req:Request,res:Response): Promise <void > {

@@ -10,9 +10,9 @@ export class AdminService implements IadminService{
 
     private adminRepository: IadminRepository;
     private bcryptPass: BcryptPass;
-    constructor(){
-        this.adminRepository=new AdminRepository();
-        this.bcryptPass = new BcryptPass();
+    constructor(adminRepository: IadminRepository){
+        this.adminRepository = adminRepository;
+                this.bcryptPass = new BcryptPass();
     }
      
    async  LoginStudent(email:string,password:string):Promise<boolean | Iadmin>{

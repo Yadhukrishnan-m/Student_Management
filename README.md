@@ -1,4 +1,4 @@
-# User Management System with JWT Authentication & Authorization
+# Student Management System 
 
 ## Overview
 This project is a **User Management System** implemented in **TypeScript** . It follows the **Repository Architecture** and utilizes **Dependency Injection (DI)** to ensure modularity and testability.
